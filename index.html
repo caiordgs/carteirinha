@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>App da Faculdade</title>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Manifesto PWA -->
+  <link rel="manifest" href="manifest.webmanifest" />
+
+  <!-- Cor da barra do navegador -->
+  <meta name="theme-color" content="#0055aa" />
+
+  <!-- iOS: modo app quando adicionar à tela inicial -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Unisagrado" />
+
+  <!-- Ícone para iOS (tela inicial) -->
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+<body>
+<header class="app-header">
+  <div class="header-title">
+    <span class="app-name">Unisagrado</span>
+    <span class="app-subtitle">Portal do Estudante</span>
+  </div>
+  <div class="user-mini">
+    <div class="user-avatar">C</div>
+    <span class="user-name">Caio Rodrigues</span>
+  </div>
+</header>
+
+<main class="app-main">
+  <!-- MENU (HOME) -->
+  <section id="screen-menu" class="screen active">
+    <h1>Olá, Caio Rodrigues 👋</h1>
+    <p>Bem-vindo ao portal do estudante.</p>
+
+    <div class="card-grid">
+      <button class="card-button" data-target="screen-noticias">
+        <h2>📰 Notícias</h2>
+        <p>Veja as últimas novidades da faculdade.</p>
+      </button>
+
+      <button class="card-button" data-target="screen-carteirinha">
+        <h2>🎓 Carteirinha</h2>
+        <p>Acesse sua carteirinha digital.</p>
+      </button>
+
+      <button class="card-button disabled">
+        <h2>📅 Horários</h2>
+        <p>Em breve.</p>
+      </button>
+
+      <button class="card-button disabled">
+        <h2>💳 Financeiro</h2>
+        <p>Em breve.</p>
+      </button>
+    </div>
+  </section>
+
+  <!-- NOTÍCIAS -->
+  <section id="screen-noticias" class="screen">
+    <div class="screen-header">
+      <button class="back-button" data-target="screen-menu">← Voltar</button>
+      <h1>Notícias</h1>
+    </div>
+
+    <ul id="news-list" class="news-list">
+      <!-- Notícias vão ser inseridas via JS -->
+    </ul>
+  </section>
+
+  <!-- CARTEIRINHA -->
+  <section id="screen-carteirinha" class="screen">
+    <div class="screen-header">
+      <button class="back-button" data-target="screen-menu">← Voltar</button>
+      <h1>Carteirinha de Estudante</h1>
+    </div>
+
+    <div class="card-student">
+      <div class="card-header">
+        <span class="college-name">Unisagrado</span>
+        <span class="student-tag">ESTUDANTE</span>
+      </div>
+
+      <div class="card-body">
+        <div class="student-photo">
+          <img src="img/essa.png" alt="Foto do estudante" class="student-photo-img">
+        </div>
+
+        <div class="student-info">
+          <p><strong>Nome:</strong> Caio Rodrigues</p>
+          <p><strong>RA:</strong> 202500123</p>
+          <p><strong>Curso:</strong> Análise e Desenvolvimento de Sistemas</p>
+          <p><strong>Validade:</strong> 12/2026</p>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <div class="qr-code">
+          <div class="qr-row">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="qr-row">
+            <span></span><span class="filled"></span><span></span><span class="filled"></span>
+          </div>
+          <div class="qr-row">
+            <span class="filled"></span><span></span><span class="filled"></span><span></span>
+          </div>
+          <div class="qr-row">
+            <span></span><span class="filled"></span><span></span><span></span>
+          </div>
+        </div>
+        <p class="card-footer-text">Apresente esta carteirinha nos pontos de acesso</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Navegação inferior -->
+<nav class="bottom-nav">
+  <button class="nav-btn active" data-target="screen-menu">
+    <span>🏠</span>
+    <span>Início</span>
+  </button>
+  <button class="nav-btn" data-target="screen-noticias">
+    <span>📰</span>
+    <span>Notícias</span>
+  </button>
+  <button class="nav-btn" data-target="screen-carteirinha">
+    <span>🎓</span>
+    <span>Carteirinha</span>
+  </button>
+</nav>
+
+<script src="app.js"></script>
+</body>
+</html>

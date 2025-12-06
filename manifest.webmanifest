@@ -1,0 +1,21 @@
+{
+  "name": "Unisagrado - Portal do Estudante",
+  "short_name": "Unisagrado",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0055aa",
+  "icons": [
+    {
+      "src": "img/unisagrado-transparente-cor.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/unisagrado-transparente-cor.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
