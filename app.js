@@ -135,7 +135,7 @@ const estudantes = [
     ra: "202600456",
     curso: "Engenharia Civil",
     validade: "12/2026",
-    foto: "img/lucas.png"
+    foto: "img/dani.png"
   },
   {
     id: "julia",
