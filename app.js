@@ -143,7 +143,6 @@ const estudantes = [
 ];
 
 let estudanteAtual = estudantes[0];
-o
 // ====== RENDERIZAÇÃO DA CARTEIRINHA ======
 function renderCarteirinha(estudante) {
   const container = document.getElementById("card-student-container");
