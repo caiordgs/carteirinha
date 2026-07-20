@@ -79,14 +79,19 @@
   <section id="screen-carteirinha" class="screen">
     <div class="screen-header">
       <button class="back-button" data-target="screen-menu">← Voltar</button>
-      <h1>Carteirinha de Estudante</h1>
+      <h1>Carteirinha</h1>
+      <!-- Botão para trocar de usuário, escondido por padrão -->
+      <button id="btn-trocar" style="display: none; margin-left: auto; border: 1px solid #ccc; background: #fff; padding: 4px 10px; border-radius: 6px; font-size: 12px; cursor: pointer;">Trocar</button>
     </div>
 
-    <!-- Abas para trocar de amigo -->
-    <div id="friends-tabs" class="friends-tabs"></div>
+    <!-- Tela de Seleção (mostrada se não tiver favorito salvo) -->
+    <div id="selection-screen">
+      <p style="margin-bottom: 12px; font-size: 14px; color: #555;">Selecione seu perfil para favoritar:</p>
+      <div id="friends-list" style="display: flex; flex-direction: column; gap: 8px;"></div>
+    </div>
 
-    <!-- Container dinâmico da carteirinha onde o JS vai injetar o HTML -->
-    <div id="card-student-container" class="card-student"></div>
+    <!-- Container dinâmico da carteirinha (mostrado se tiver favorito) -->
+    <div id="card-student-container" class="card-student" style="display: none;"></div>
   </section>
 </main>
 

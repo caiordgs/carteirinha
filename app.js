@@ -112,6 +112,19 @@ document.addEventListener("DOMContentLoaded", () => {
   setupNavigation();
   renderNews();
   registerServiceWorker();
+
+  // Inicia a verificação de quem é o usuário favorito
+  verificarFavorito();
+
+  // Configura o botão de trocar de usuário
+  const btnTrocar = document.getElementById("btn-trocar");
+  if (btnTrocar) {
+    btnTrocar.addEventListener("click", () => {
+      // Remove o favorito do celular e recarrega a tela
+      localStorage.removeItem("favoritoCarteirinha");
+      verificarFavorito();
+    });
+  }
 });
 
 // ====== DADOS DOS ESTUDANTES ======
@@ -142,7 +155,56 @@ const estudantes = [
   }
 ];
 
-let estudanteAtual = estudantes[0];
+// ====== GERENCIAMENTO DO FAVORITO ======
+function verificarFavorito() {
+  const idSalvo = localStorage.getItem("favoritoCarteirinha");
+  const telaSelecao = document.getElementById("selection-screen");
+  const containerCarteirinha = document.getElementById("card-student-container");
+  const btnTrocar = document.getElementById("btn-trocar");
+
+  if (idSalvo) {
+    // 1. Tem favorito: Acha o estudante, esconde a lista e mostra a carteirinha
+    const estudante = estudantes.find(e => e.id === idSalvo) || estudantes[0];
+
+    telaSelecao.style.display = "none";
+    containerCarteirinha.style.display = "block";
+    btnTrocar.style.display = "block";
+
+    renderCarteirinha(estudante);
+  } else {
+    // 2. Não tem favorito: Mostra a lista para escolher e esconde a carteirinha
+    telaSelecao.style.display = "block";
+    containerCarteirinha.style.display = "none";
+    btnTrocar.style.display = "none";
+
+    renderListaSelecao();
+  }
+}
+
+function renderListaSelecao() {
+  const listaContainer = document.getElementById("friends-list");
+  if (!listaContainer) return;
+
+  listaContainer.innerHTML = ""; // Limpa a lista
+
+  estudantes.forEach((estudante) => {
+    const btn = document.createElement("button");
+    btn.className = "card-button"; // Reaproveitando o estilo bonito dos botões do menu inicial
+    btn.innerHTML = `
+      <h2>${estudante.nome}</h2>
+      <p>RA: ${estudante.ra}</p>
+    `;
+
+    // Ao clicar, salva o ID no celular e verifica novamente
+    btn.addEventListener("click", () => {
+      localStorage.setItem("favoritoCarteirinha", estudante.id);
+      verificarFavorito();
+    });
+
+    listaContainer.appendChild(btn);
+  });
+}
+
 // ====== RENDERIZAÇÃO DA CARTEIRINHA ======
 function renderCarteirinha(estudante) {
   const container = document.getElementById("card-student-container");
@@ -179,24 +241,7 @@ function renderCarteirinha(estudante) {
   `;
 }
 
-function renderTabs() {
-  const tabsContainer = document.getElementById("friends-tabs");
-  if (!tabsContainer) return;
 
-  tabsContainer.innerHTML = "";
-
-  estudantes.forEach((estudante) => {
-    const btn = document.createElement("button");
-    btn.className = `tab-btn ${estudante.id === estudanteAtual.id ? "active" : ""}`;
-    btn.innerText = estudante.nome.split(" ")[0]; // Exibe apenas o primeiro nome
-    btn.addEventListener("click", () => {
-      estudanteAtual = estudante;
-      renderTabs();
-      renderCarteirinha(estudanteAtual);
-    });
-    tabsContainer.appendChild(btn);
-  });
-}
 
 // ====== ATUALIZAR O DOMCONTENTLOADED ======
 document.addEventListener("DOMContentLoaded", () => {
