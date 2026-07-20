@@ -309,3 +309,30 @@ body {
   background: #e1ecff;
   color: #0055aa;
 }
+
+/* ABAS DE AMIGOS NA CARTEIRINHA */
+.friends-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.tab-btn {
+  background: #e1e7f0;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab-btn.active {
+  background: #0055aa;
+  color: #ffffff;
+}
