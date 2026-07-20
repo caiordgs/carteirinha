@@ -135,7 +135,7 @@ const estudantes = [
     ra: "202600456",
     curso: "Engenharia Civil",
     validade: "12/2026",
-    foto: "img/dani.png"
+    foto: "https://i.imgur.com/X131vUV.png"
   },
   {
     id: "julia",
@@ -151,7 +151,7 @@ const estudantes = [
     ra: "202600651",
     curso: "Publicidade e Propaganda",
     validade: "12/2026",
-    foto: "img/gabi.png"
+    foto: "https://i.imgur.com/ROUDqWV.jpeg"
   }
 ];
 
