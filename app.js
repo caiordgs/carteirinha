@@ -151,7 +151,7 @@ const estudantes = [
     ra: "202600651",
     curso: "Publicidade e Propaganda",
     validade: "12/2026",
-    foto: "img/mariana.png"
+    foto: "img/gabi.png"
   }
 ];
 
